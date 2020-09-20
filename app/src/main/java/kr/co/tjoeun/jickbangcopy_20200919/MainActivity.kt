@@ -40,6 +40,7 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
 
 
+
 //        .text 값 대입 등 화면 문구/ 데이터 반영하는 코드만
        mRooms.add(Room(8500, "서울시 은평구", 5, "은평구의 5층 방 입니다."))
        mRooms.add(Room(78000, "서울시 은평구", 3, "은평구의 3층 방 입니다."))
