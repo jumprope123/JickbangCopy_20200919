@@ -27,6 +27,7 @@ class RoomAdapter(val mContext: Context, val resId: Int, val mList: ArrayList<Ro
         val roomData = mList[position]
 
         descriptionTxt.text = roomData.description
+        addressAndFloorTxt.text = "${roomData.address}, ${roomData.getFormattedFloor()}"
 
         return row
     }
