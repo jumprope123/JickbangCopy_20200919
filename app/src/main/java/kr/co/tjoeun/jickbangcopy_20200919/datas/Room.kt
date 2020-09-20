@@ -1,5 +1,8 @@
 package kr.co.tjoeun.jickbangcopy_20200919.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 class Room(
     val price: Int,
     val address: String,
@@ -18,4 +21,19 @@ class Room(
         }
     }
 
+    fun getFormattedPrice() : String {
+        if (this.price < 10000) {
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(this.price)
+        }
+        else {
+//            ?억 나머지돈
+
+            val mk = this.price/10000
+            val thousand = this.price % 10000
+            val thousandStr = NumberFormat.getNumberInstance(Locale.KOREA).format(thousand)
+
+
+            return "${mk}억 ${thousandStr}"
+        }
+    }
 }
