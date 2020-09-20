@@ -1,5 +1,6 @@
 package kr.co.tjoeun.jickbangcopy_20200919
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Adapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,9 +24,22 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 //        버튼 이벤트 / 리스트뷰 이벤트 등 이벤트 처리만 모아두는 코드
+
+        roomListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedRoom = mRooms[position]
+
+            val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            myIntent.putExtra("roomInfo",clickedRoom)
+            startActivity(myIntent)
+
+        }
+
     }
 
     override fun setValues() {
+
+
 //        .text 값 대입 등 화면 문구/ 데이터 반영하는 코드만
        mRooms.add(Room(8500, "서울시 은평구", 5, "은평구의 5층 방 입니다."))
        mRooms.add(Room(78000, "서울시 은평구", 3, "은평구의 3층 방 입니다."))
